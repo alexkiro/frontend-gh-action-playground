@@ -88,5 +88,4 @@ jobs:
            dist-${GITHUB_SHA}
      - run: yarn install
      - run: safaridriver -p 0 &
-     # - run: yarn test:karma:safari
      - run: yarn test:e2e:safari
