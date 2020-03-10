@@ -87,5 +87,9 @@ jobs:
          restore-keys: |
            dist-${GITHUB_SHA}
      - run: yarn install
-     - run: safaridriver -p 0 &
+     - run: |
+           defaults write com.apple.Safari IncludeDevelopMenu YES
+           defaults write com.apple.Safari AllowRemoteAutomation 1
+           sudo safaridriver --enable
+           safaridriver -p 0 &
      - run: yarn test:e2e:safari
